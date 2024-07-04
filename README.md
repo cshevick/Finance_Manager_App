@@ -5,4 +5,4 @@ Basic financial manager application
 
 -To enhance functionality and user experience, I designed a simple PostgreSQL database managed through PG Admin 4. This database supports secure user authentication and stores essential data such as usernames, passwords, and personalized stock lists. SQL queries were utilized within the application to retrieve and display user-specific data, enabling interaction with stored stock information directly within the app.
 
--Additional features include an income statement generator and a bill management system, providing users with powerful tools for financial tracking and analysis.
+-Additional features include an income statement generator, a bill management system, and a learning feature, which provide users with powerful tools for financial tracking and analysis as well as guidance. 
