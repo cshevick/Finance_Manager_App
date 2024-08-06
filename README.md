@@ -1,8 +1,54 @@
 # Finance-Manager-App
 Basic financial manager application
 
--Developed a finance manager app in Python, utilizing the Alpha Vantage API to fetch and display real-time stock data. The application features an intuitive interface built with PySimpleGUI, facilitating easy navigation for stock price monitoring, trend analysis, and financial statement management.
+# Python Financial Manager Application
 
--To enhance functionality and user experience, I designed a simple PostgreSQL database managed through PG Admin 4. This database supports secure user authentication and stores essential data such as usernames, passwords, and personalized stock lists. SQL queries were utilized within the application to retrieve and display user-specific data, enabling interaction with stored stock information directly within the app.
+A basic financial manager application that helps users manage their financial data, monitor stock prices, and analyze financial trends. This application leverages the Alpha Vantage API for real-time stock data and utilizes PySimpleGUI for an intuitive user interface. A PostgreSQL database managed through PG Admin 4 ensures secure user authentication and personalized data storage.
 
--Additional features include an income statement generator, a bill management system, and a learning feature, which provide users with powerful tools for financial tracking and analysis as well as guidance. 
+## Table of Contents
+
+- [Overview](#overview)
+- [Features](#features)
+- [Architecture](#architecture)
+- [Setup and Installation](#setup-and-installation)
+- [Usage](#usage)
+- [Screenshots](#screenshots)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Overview
+
+The financial manager application is designed to provide users with powerful tools for financial tracking, analysis, and management. It includes real-time stock monitoring, trend analysis, financial statement management, an income statement generator, a bill management system, and a learning feature for financial guidance.
+
+## Features
+
+- **Real-time Stock Data:**
+  - Fetch and display real-time stock data using the Alpha Vantage API.
+  - Monitor stock prices and analyze trends.
+- **Intuitive User Interface:**
+  - Built with PySimpleGUI for easy navigation and a user-friendly experience.
+- **Secure Database Management:**
+  - PostgreSQL database managed through PG Admin 4 for secure user authentication.
+  - Stores essential data such as usernames, passwords, and personalized stock lists.
+- **SQL Queries:**
+  - Retrieve and display user-specific data using SQL queries.
+  - Interact with stored stock information directly within the app.
+- **Financial Tools:**
+  - Income statement generator.
+  - Bill management system.
+  - Learning feature for financial guidance and tips.
+
+## Architecture
+
+The application consists of the following components:
+- **Frontend:** PySimpleGUI for building the user interface.
+- **Backend:** Python scripts for handling business logic, API requests, and database interactions.
+- **Database:** PostgreSQL database for storing user data securely.
+- **API:** Alpha Vantage API for fetching real-time stock data.
+
+## Setup and Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yourusername/financial-manager-app.git
+   cd financial-manager-app
