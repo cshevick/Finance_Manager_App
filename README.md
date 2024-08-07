@@ -15,7 +15,7 @@ A basic financial manager application that helps users manage their financial da
 
 ## Overview
 
-The financial manager application is designed to provide users with powerful tools for financial tracking, analysis, and management. It includes real-time stock monitoring, trend analysis, financial statement management, an income statement generator, a bill management system, and a learning feature for financial guidance.
+The financial manager application is designed to provide users with  tools for financial tracking, analysis, and management. It includes real-time stock monitoring, trend analysis, financial statement management, an income statement generator, a bill management system, and a learning feature for financial guidance.
 
 ## Features
 
