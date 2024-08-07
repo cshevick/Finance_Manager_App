@@ -3,7 +3,7 @@ from alpha_vantage.timeseries import TimeSeries
 from alpha_vantage.fundamentaldata import FundamentalData
 import menuScreen
 import databaseConnect
-import psycopg2  # Assuming psycopg2 is used for PostgreSQL interaction
+import psycopg2  
 
 
 def get_user_stocks(username):
@@ -16,17 +16,17 @@ def get_user_stocks(username):
     Returns:
     - list or None: List of stocks (JSONB array) if found, else None.
     """
-    conn = databaseConnect.connect_to_db()
+    conn = databaseConnect.connect_to_db()  # Connect to the database
     if conn:
         try:
             cur = conn.cursor()
-            cur.execute('SELECT stocks FROM "userInfo" WHERE username = %s', (username,))
+            cur.execute('SELECT stocks FROM "userInfo" WHERE username = %s', (username,))  # Fetch stocks for the user
             result = cur.fetchone()
             cur.close()
             conn.close()
 
             if result:
-                stock_list = result[0]  # Assuming stocks is stored as a JSONB array
+                stock_list = result[0]  # Extract the stocks from the result
                 return stock_list
             else:
                 return None
@@ -44,16 +44,15 @@ def addStock(user, stock):
     - stock (str): The stock symbol to be added.
 
     """
-    conn = databaseConnect.connect_to_db()
+    conn = databaseConnect.connect_to_db()  # Connect to the database
     if conn:
         try:
             cur = conn.cursor()
-            # Update the stocks array for the specified user
             cur.execute("""
                         UPDATE "userInfo"
                         SET stocks = ARRAY_APPEND(stocks, %s)
                         WHERE username = %s
-                        """, (stock, user))
+                        """, (stock, user))  # Update the stocks array for the user
             conn.commit()  # Commit the transaction
             print(f"Stock {stock} added successfully for user {user}")
 
@@ -83,22 +82,19 @@ def getInfo(username):
         [sg.Output(size=(500, 500), key='-OUTPUT-')]
     ]
 
-    # Create the window
-    window = sg.Window('Personal Finance Manager', layout, size=(600, 600))
+    window = sg.Window('Personal Finance Manager', layout, size=(600, 600))  # Create the window
 
     # Event loop to process events and interact with the window
     while True:
         event, values = window.read()
 
-        # Close the window if the user clicks the 'Exit' button or closes the window
         if event == sg.WINDOW_CLOSED:
-            break
+            break  # Exit the loop if the window is closed
 
         if event == 'Back':
             window.close()
-            menuScreen.menu()
+            menuScreen.menu()  # Return to the menu screen
 
-        # Process the input when the 'Submit' button is clicked
         if event == 'Submit':
             user_input = str(values['-INPUT-'])
             api_key = '9QS4OVT4F4N2BPT1'
@@ -107,7 +103,7 @@ def getInfo(username):
             fd = FundamentalData(key=api_key)
             ts = TimeSeries(key=api_key)
 
-            # Get quote endpoint data (latest price)
+            # Get latest price data
             data, meta_data = ts.get_quote_endpoint(user_input)
             latest_price = data['05. price']
 
@@ -117,32 +113,24 @@ def getInfo(username):
             industry = data['Industry']
             description = data['Description']
 
-            # Format the output
+            # Format and display the output
             output = f'\nCompany Name: {company_name}\n\n' + \
                      f'Industry: {industry}\n\n' + \
                      f'Description: {description}\n' + \
                      f'\nCurrent price of {user_input}: ${latest_price}'
-
-            # Print the output to the output box
             print(output)
 
-        # Add functionality for the 'Add Stock to Profile' button
         if event == 'Add Stock to Profile':
             user_input = str(values['-INPUT-'])
             addStock(username, user_input)  # Add stock to user's profile
             sg.popup('Stock added to profile.')  # Notify user
 
-        # Add functionality for the 'My Stocks' button
         if event == 'My Stocks':
             stock_list = get_user_stocks(username)  # Retrieve user's saved stocks
             if stock_list:
                 stock_list_text = '\n'.join(stock_list)
-                sg.popup_scrolled('Your Stocks:', stock_list_text, size=(75, 20))
+                sg.popup_scrolled('Your Stocks:', stock_list_text, size=(75, 20))  # Display stocks
             else:
                 sg.popup('No stocks found for the user.')
 
-    # Close the window
-    window.close()
-
-
-
+    window.close()  # Close the window when done
