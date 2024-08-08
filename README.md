@@ -1,5 +1,7 @@
 # Python Financial Manager Application
 
+A basic financial manager application that helps users manage their financial data, monitor stock prices, and analyze financial trends. This application leverages the Alpha Vantage API for real-time stock data and utilizes PySimpleGUI for an intuitive user interface. A PostgreSQL database managed through PG Admin 4 ensures secure user authentication and personalized data storage.
+
 ## Table of Contents
 
 - [Overview](#overview)
@@ -9,8 +11,7 @@
 
 ## Overview
 
-A basic financial manager application that helps users manage their financial data, monitor stock prices, and analyze financial trends. This application leverages the Alpha Vantage API for real-time stock data and utilizes PySimpleGUI for an intuitive user interface. A PostgreSQL database managed through PG Admin 4 ensures secure user authentication and personalized data storage.
-## Features
+The financial manager application is designed to provide users with tools for financial tracking, analysis, and management. It includes real-time stock monitoring, trend analysis, financial statement management, an income statement generator, a bill management system, and a learning feature for financial guidance.
 
 - **Real-time Stock Data:**
   - Fetch and display real-time stock data using the Alpha Vantage API.
