@@ -127,10 +127,7 @@ def login():
                 cur.execute('SELECT username, password FROM "userInfo" WHERE username = %s', (userUsername,))
                 record = cur.fetchone()
 
-                # Debugging information
-                print(f"Debug: Entered Username: {userUsername}, Entered Password: {userPassword}")
-                print(f"Debug: Fetched record: {record}")
-
+               
                 if record:
                     stored_username, stored_password = record
                     print(f"Debug: Stored Username: {stored_username}, Stored Password: {stored_password}")
