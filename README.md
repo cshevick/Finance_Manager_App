@@ -37,9 +37,4 @@ The application consists of the following components:
 - **Database:** PostgreSQL database for storing user data securely.
 - **API:** Alpha Vantage API for fetching real-time stock data.
 
-## Setup and Installation
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/yourusername/financial-manager-app.git
-   cd financial-manager-app
