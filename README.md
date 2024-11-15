@@ -1,8 +1,10 @@
 # Python Financial Manager Application
 
-A basic financial manager application that helps users manage their financial data, monitor stock prices, and analyze financial trends. This application leverages the Alpha Vantage API for real-time stock data and utilizes PySimpleGUI for an intuitive user interface. A PostgreSQL database managed through PG Admin 4 ensures secure user authentication and personalized data storage.
+A financial management application designed to help users track and analyze their financial data with real-time stock monitoring and trend analysis using the Alpha Vantage API. It features an intuitive PySimpleGUI interface, secure PostgreSQL database for personalized data storage, and tools like an income statement generator and bill management system for comprehensive financial planning. 
 
-## Table of Contents
+## Installation
+  1. Clone the repository in IDE of choice using: https://github.com/cshevick/Finance_Manager_App.git
+  2. Install the required dependencies: pip install pandas alpha_vantage PySimpleGUI psycopg2-binary
 
 - [Overview](#overview)
 - [Features](#features)
