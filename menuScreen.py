@@ -6,7 +6,7 @@ import learnScreen
 
 
 
-def menu():
+def menu(username):
     # Define the layout for the big screen
     layout = [
         [sg.Text('Welcome to your Financial Manager', justification='center', font=('Helvetica', 20))],
@@ -26,18 +26,18 @@ def menu():
             break
         elif event == 'Stock Market':
             window.close()
-            stockScreen.getInfo()
+            stockScreen.getInfo(username)
 
         elif event == 'Income Statement':
             window.close()
-            incomeStatementScreen.incomeStatement()
+            incomeStatementScreen.incomeStatement(username)
 
         elif event == 'Bill Management':
             window.close()
-            billManageScreen.manage()
+            billManageScreen.manage(username)
         elif event == 'Learn':
             window.close()
-            learnScreen.learnMenu()
+            learnScreen.learnMenu(username)
 
     # Close the window
     window.close()
