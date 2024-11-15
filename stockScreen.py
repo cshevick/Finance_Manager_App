@@ -93,7 +93,7 @@ def getInfo(username):
 
         if event == 'Back':
             window.close()
-            menuScreen.menu()  # Return to the menu screen
+            menuScreen.menu(username)  # Return to the menu screen
 
         if event == 'Submit':
             user_input = str(values['-INPUT-'])
