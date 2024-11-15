@@ -2,7 +2,7 @@ import PySimpleGUI as sg
 import menuScreen
 
 
-def netIncome(revenue, gains, expenses, losses):
+def netIncome(revenue, gains, expenses, losses,username):
     # Calculate net income
     NetIncome = (int(revenue) + int(gains)) - (int(expenses) + int(losses))
 
@@ -37,12 +37,12 @@ def netIncome(revenue, gains, expenses, losses):
             break
         elif event == 'Back':
             window.close()
-            menuScreen.menu()
+            menuScreen.menu(username)
 
     window.close()
 
 
-def incomeStatement():
+def incomeStatement(username):
     # Define the layout for the input page
     layout = [
         [sg.Text('Enter data to Calculate Income Statement:')],
@@ -66,6 +66,6 @@ def incomeStatement():
             gains = values['-gains-']
             expenses = values['-expenses-']
             losses = values['-losses-']
-            netIncome(revenue, gains, expenses, losses)
+            netIncome(revenue, gains, expenses, losses,username)
             window.close()
 
