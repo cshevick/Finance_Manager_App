@@ -97,7 +97,7 @@ def getInfo(username):
 
         if event == 'Submit':
             user_input = str(values['-INPUT-'])
-            api_key = '9QS4OVT4F4N2BPT1'
+            api_key = '9QS4OVT4F4N2BPT1'        // insert API key number
 
             # Initialize Alpha Vantage API clients
             fd = FundamentalData(key=api_key)
