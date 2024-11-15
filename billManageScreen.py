@@ -2,7 +2,7 @@ import PySimpleGUI as sg
 import menuScreen
 
 
-def billCalc(housing, car, insurance, utilities, loans, creditCard, expenses, subscription, income):
+def billCalc(housing, car, insurance, utilities, loans, creditCard, expenses, subscription, income,username):
     # Calculate total due and remaining money
     totalDue = int(housing) + int(car) + int(insurance) + int(utilities) + int(loans) + int(creditCard) + int(
         expenses) + int(subscription)
@@ -52,12 +52,12 @@ def billCalc(housing, car, insurance, utilities, loans, creditCard, expenses, su
             break
         elif event == 'Back':
             window.close()
-            menuScreen.menu()
+            menuScreen.menu(username)
 
     window.close()
 
 
-def manage():
+def manage(username):
     # Define the layout for the management screen
     layout = [
         [sg.Text('Enter the following information:')],
@@ -82,7 +82,7 @@ def manage():
             break
         elif event == 'Back':
             window.close()
-            menuScreen.menu()
+            menuScreen.menu(username)
         elif event == 'Submit':
             # Extract values from inputs
             housing = values['-housing-']
@@ -96,4 +96,4 @@ def manage():
             income = values['-income-']
 
             window.close()
-            billCalc(housing, car, insurance, utilities, loans, creditCard, expenses, subscription, income)
+            billCalc(housing, car, insurance, utilities, loans, creditCard, expenses, subscription, income,username)
