@@ -34,7 +34,7 @@ debt = "-Create a budget to track income and expenses.\n" \
        "-Stay organized with payment due dates and progress.\n"
 
 
-def popUp(info):
+def popUp(info,username):
     # Define the layout of the popup window
     layout = [
         [sg.Button('Back')],
@@ -50,13 +50,13 @@ def popUp(info):
             break
         elif event == 'Back':
             window.close()
-            learnMenu()
+            learnMenu(username)
 
     # Close the window
     window.close()
 
 
-def learnMenu():
+def learnMenu(username):
     layout = [
         [sg.Text('Learn about your finances', justification='center', font=('Helvetica', 20))],
         [sg.Button('Investing Strategies', size=(20, 2), pad=(1, 1), font=('Helvetica', 15))],
@@ -74,16 +74,16 @@ def learnMenu():
             break
         elif event == 'Investing Strategies':
             window.close()
-            popUp(investing)
+            popUp(investing,username)
         elif event == 'Saving Strategies':
             window.close()
-            popUp(saving)
+            popUp(saving,username)
         elif event == 'Managing Debt':
             window.close()
-            popUp(debt)
+            popUp(debt,username)
         elif event == 'Back':
             window.close()
-            menuScreen.menu()
+            menuScreen.menu(username)
 
     # Close the window
     window.close()
